@@ -1,0 +1,16 @@
+<!-- ui.html -->
+<input type="text" id="searchInput" placeholder="Search WCAG criteria...">
+<button id="searchButton">Search</button>
+<ul id="searchResults"></ul>
+
+<script>
+  // This script will communicate with the main plugin code
+  document.getElementById('searchButton').addEventListener('click', function () {
+    const searchText = document.getElementById('searchInput').value;
+    parent.postMessage({ pluginMessage: { type: 'search-wcag', text: searchText } }, '*');
+  });
+
+  window.addEventListener('message', function (event) {
+
+  })
+</script>
